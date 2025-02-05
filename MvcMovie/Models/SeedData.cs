@@ -23,36 +23,46 @@ public static class SeedData
             context.Movie.AddRange(
                 new Movie
                 {
-                    Title = "When Harry Met Sally",
-                    ReleaseDate = DateTime.Parse("1989-2-12"),
-                    Genre = "Romantic Comedy",
+                    Title = "The Crow",
+                    ReleaseDate = DateTime.Parse("2025-2-28"),
+                    Genre = "Action",
                     Rating = "R",
-                    Price = 7.99M
+                    Price = 9.90M
                 },
                 new Movie
                 {
-                    Title = "Ghostbusters",
-                    ReleaseDate = DateTime.Parse("1984-3-13"),
-                    Genre = "Comedy",
+                    Title = "The Killer's Game",
+                    ReleaseDate = DateTime.Parse("2025-3-8"),
+                    Genre = "Action",
                     Rating = "R",
-                    Price = 8.99M
+                    Price =12.00M
                 },
                 new Movie
                 {
-                    Title = "Ghostbusters 2",
-                    ReleaseDate = DateTime.Parse("1986-2-23"),
-                    Genre = "Comedy",
+                    Title = "Speak No Evil",
+                    ReleaseDate = DateTime.Parse("2025-3-6"),
+                    Genre = "Horror",
                     Rating = "R",
-                    Price = 9.99M
+                    Price = 12.00M
                 },
                 new Movie
                 {
-                    Title = "Rio Bravo",
-                    ReleaseDate = DateTime.Parse("1959-4-15"),
-                    Genre = "Western",
+                    Title = "Back In Action",
+                    ReleaseDate = DateTime.Parse("2025-4-3"),
+                    Genre = "Action",
                     Rating = "R",
-                    Price = 3.99M
+                    Price = 9.90M
+                },
+                new Movie
+                {
+                    Title = "Venom: The Last Dance",
+                    ReleaseDate = DateTime.Parse("2025-4-1"),
+                    Genre = "Scientific",
+                    Rating = "R",
+                    Price = 11.90M
                 }
+
+
             );
 
             context.SaveChanges();
