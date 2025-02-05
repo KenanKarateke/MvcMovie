@@ -70,7 +70,7 @@ Had to get NuPackages
 Ran these commands in the command prompt
 Add-Migration Rating
 Update-Database
-  VALUES (N'20250126042838_Rating', N'8.0.11')
+  VALUES (N'20250129122131_Rating', N'8.0.11')
 Ran app
 successful
 
@@ -102,11 +102,22 @@ Clean completed at 10:35 AM and took 01.865 seconds
 Added a Rating field to the Movie model.
 Updated Models/Movie.cs with public int Rating { get; set; }.
 Created a new migration using Add-Migration AddRatingField.
+
+20250129124626_AddRatingFields
+
 Executed Update-Database to apply the migration.
 Verified the Movies table in SQL Server Management Studio (SSMS) to confirm the column addition.
 
+1054
+
+I stucked Rating Field, 
+
+1113 
+
+That's it today
+
 20250127
-1430
+0230
 Encountered SqlException: Invalid column name 'Rating'.
 Checked the Movies table; Rating column was missing.
 Re-ran Update-Database, but no changes occurred.
@@ -115,7 +126,7 @@ Executed Update-Database again; confirmed the column addition.
 Tested database schema and executed test queries successfully.
 
 20250128
-1845
+0645
 Updated views to include Rating field.
 Modified /Views/Movies/Create.cshtml:
 
@@ -125,14 +136,75 @@ Modified /Views/Movies/Create.cshtml:
     <span asp-validation-for="Rating" class="text-danger"></span>
 </div>
 
+0730
+
 Updated /Views/Movies/Edit.cshtml and /Views/Movies/Details.cshtml.
 Ran and tested Create and Edit functionalities.
 Validated changes in the HTML source and verified data flow in the application.
 
+0900
+
+I added Rating Colum in edit file.
+Then test it, it works..
+
+1030
+
+This log provides a detailed record of challenges faced while implementing the Rating field in the project, along with the steps taken to troubleshoot and resolve each issue.
+Lastly I tested again, it works now.
+
 20250129
 0845
+
+i update it
+
 Successfully implemented and tested the Rating field across all views.
 Confirmed functionality and data persistence.
 
-This log provides a detailed record of challenges faced while implementing the Rating field in the project, along with the steps taken to troubleshoot and resolve each issue.
 
+2025002
+1000
+
+Added validation to the Movie model using DataAnnotations.
+Used attributes like Required, StringLength, Range, and RegularExpression for better input control.
+Validation works both on the client-side (with jQuery) and server-side.
+Followed the DRY principle by placing all validation rules in the model, keeping the app clean and easy to maintain.
+The Create form now automatically displays validation errors without needing changes to the controller.
+Ensured that form data isn’t sent if there are validation errors (both client and server-side checks).
+
+1022
+Client-side validation doesn’t work for decimal fields in some locales.
+Solved: Added support for locales using decimal commas by globalizing the app to handle regional formats correctly.
+1030
+Date validation errors when using the Range attribute with DateTime.
+Solved: Disabled jQuery date validation to properly use Range with DateTime without issues.
+1045
+Validation messages weren’t appearing automatically.
+Solved: Ensured that the asp-validation-for and asp-validation-summary tags are correctly placed in the form to display errors.
+
+1100
+tested, it worked
+
+
+20250205
+0829
+Clean started at 8:31 AM...
+1>------ Clean started: Project: MvcMovie, Configuration: Debug Any CPU ------
+========== Clean: 1 succeeded, 0 failed, 0 skipped ==========
+========== Clean completed at 8:31 AM and took 01.095 seconds ==========
+
+Clean started at 8:33 AM...
+1>------ Clean started: Project: MvcMovie, Configuration: Debug Any CPU ------
+========== Clean: 1 succeeded, 0 failed, 0 skipped ==========
+========== Clean completed at 8:33 AM and took 00.312 seconds ==========
+
+Now test time!
+
+Build started at 8:33 AM...
+1>------ Build started: Project: MvcMovie, Configuration: Debug Any CPU ------
+Restored C:\Users\Can\source\repos\MvcMovie\MvcMovie\MvcMovie.csproj (in 1.08 sec).
+1>MvcMovie -> C:\Users\Can\source\repos\MvcMovie\MvcMovie\bin\Debug\net8.0\MvcMovie.dll
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+========== Build completed at 8:33 AM and took 04.498 seconds ==========
+
+0849
+I think I have done.
