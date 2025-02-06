@@ -1,28 +1,22 @@
-The guide to deploy an ASP.NET Core web app with a SQL Database in Azure:
+# MvcMovie   
 
-Run the Sample Locally (via GitHub Codespaces):
+MvcMovie is an ASP.NET Core MVC application designed to manage a movie database with features such as movie creation, editing, search by genre, and validation. The project follows best practices in database management, validation, and UI development.  
 
-Fork the repo and create a Codespace.
-In the terminal, run:
+### Key Features:  
+- **CRUD Operations**: Implemented Create, Read, Update, and Delete functionalities for movies.  
+- **Search by Genre**: Users can filter movies based on genre using LINQ queries.  
+- **Entity Framework Integration**: Uses Entity Framework Core with SQL Server for database management.  
+- **Data Validation**: Applied validation attributes such as `Required`, `StringLength`, `RegularExpression`, and `Range` to ensure data integrity.  
+- **Localization Support**: Addressed issues with decimal formatting for different locales.  
+- **Bug Fixes & Debugging**: Resolved SQL migration issues, missing columns, and validation inconsistencies.  
+- **Automated UI Updates**: Views automatically reflect model validation and updates without extra controller modifications.  
 
-dotnet ef database update
-dotnet run
-Access the app at http://localhost:5093.
-Quick Deploy with Azure Developer CLI (azd):
+### Development Timeline:  
+- **Initial Setup & View Creation** (Jan 22)  
+- **Entity Framework & Database Setup** (Jan 22-25)  
+- **Genre-based Search & UI Enhancements** (Jan 25)  
+- **Added Rating Property & Migration Fixes** (Jan 25-29)  
+- **Validation Implementation & Localization Fixes** (Feb 2)  
+- **Final Testing & Build Success** (Feb 5)  
 
-Log in to Azure:
-
-azd auth login
-Provision and deploy:
-
-azd up
-After deployment, visit the endpoint URI provided.
-Database Migration Automation:
-
-Migrations are handled via a self-contained migrations bundle.
-The azure.yaml uses a prepackage hook to generate the bundle, and it's included in the deployment.
-Password Management:
-
-SQL and Redis Cache secrets are stored in a Key Vault with private endpoint access.
-The database password is automatically generated and updated with each deployment.
-For more details or troubleshooting, check the project’s Issues section.
+The project is now fully functional and tested, providing a streamlined experience for managing movie data efficiently.
